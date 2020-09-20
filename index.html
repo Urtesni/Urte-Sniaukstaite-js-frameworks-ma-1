@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <title>School Assignment</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="header">
+        <h1>School assignment - slider using jQuery</h1>
+    </div>
+    <div class="slider">
+        <ul class="slides">
+            <li class="slide"><img src="./images/daniel-cheung-cPF2nlWcMY4-unsplash.jpg" alt=""></li>
+            <li class="slide"><img src="./images/jonathan-borba-J50y8mcFIgk-unsplash.jpg" alt=""></li>
+            <li class="slide"><img src="./images/wolfgang-hasselmann-474zbfqYDIA-unsplash.jpg" alt=""></li>
+        </ul>
+    </div>
+    
+    <script>
+        var currentSlide = 1;
+        var $slider = $(".slider");
+        var slideCount = $slider.children().length;
+        var slideTime = 5000;
+        var animationTime = 800;
+
+        setInterval(function() {
+            $slider.animate({
+                marginLeft : '-=900px'
+            } , animationTime, function(){
+                currentSlide ++;
+                if(currentSlide === slideCount){
+                    currentSlide = 1;
+                    $(this).css("margin-left" , "0px")
+                }
+            });
+        } , slideTime);
+    </script>
+
+</body>
+</html>
